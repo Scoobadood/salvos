@@ -289,9 +289,10 @@ public class GameManager : MonoBehaviour {
 
 	void DeactivateButtons ()
 	{
-		Canvas canvas = FindObjectOfType<Canvas> ();
-		foreach (Transform transform in canvas.transform) {
-			transform.gameObject.GetComponent<Button> ().interactable = false;
+		// There are twoseveral canvases now; we need to get the right one!
+		Button[] buttons = FindObjectsOfType<Button> ();
+		foreach ( Button button in buttons) {
+			button.interactable = false;
 		}
 	}
 
